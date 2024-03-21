@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* App.css */
+body {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.todo-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+h2 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* To do */
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: white;
+}
+.todo-item label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.todo-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+.todo-item .task-text {
+  flex-grow: 1;
+  word-break: break-all;
+}
+.todo-item button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.todo-item button:hover {
+  background-color: #0056b3;
+}
+.todo-item button.delete {
+  background-color: #dc3545;
+  border-radius: 4px;
+}
+.todo-item button.delete:hover {
+  background-color: #c82333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Style de la fenêtre modale */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+/* Contenu de la fenêtre modale */
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+/* Bouton de fermeture de la fenêtre modale */
+.close {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #aaa; /* Couleur de texte gris au survol */
+}
+/* Style pour le champ texte de la tâche */
+.modal-content input[type="text"] {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/* Style pour le bouton de validation */
+.modal-content button {
+  background-color: #007bff; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur de texte du bouton */
+  padding: 8px 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+/* Style pour le bouton de validation au survol */
+.modal-content button:hover {
+  background-color: #0056b3; /* Couleur de fond du bouton au survol */
+}
+
+
+.search {
+  margin-top: 20px  ;
+}
+
+.task-label{
+  color : forestgreen;
+}
+.Ajouter {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #888;
 }
