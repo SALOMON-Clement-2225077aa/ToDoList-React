@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import '../style/App.css';
+import Header from './Header.js';
+import Footer from "./Footer";
 
 function App() {
   const initialItems = [
@@ -44,7 +46,6 @@ function App() {
     setShowModal(false);
     setNewTask(""); // Réinitialise le champ texte après la fermeture de la modal
   };
-
   const handleModalSubmit = () => {
     if (newTask.trim() !== "") {
       const newItem = {
@@ -62,7 +63,7 @@ function App() {
   const handleDeletion = (id) => {
     const updatedItems = todoItems.filter(item => item.id !== id);
     setTodoItems(updatedItems);
-    saveTodoItemsToLocalStorage(updatedItems); // Met à jour le localstorage après la suppression
+    saveTodoItemsToLocalStorage(updatedItems);
   };
 
   const numDone = todoItems.filter(item => item.done).length;
@@ -89,7 +90,7 @@ function App() {
       const newItems = [...todoItems];
       [newItems[index - 1], newItems[index]] = [newItems[index], newItems[index - 1]];
       setTodoItems(newItems);
-      saveTodoItemsToLocalStorage(newItems); // Met à jour le localstorage après le déplacement
+      saveTodoItemsToLocalStorage(newItems);
     }
   };
 
@@ -99,7 +100,7 @@ function App() {
       const newItems = [...todoItems];
       [newItems[index], newItems[index + 1]] = [newItems[index + 1], newItems[index]];
       setTodoItems(newItems);
-      saveTodoItemsToLocalStorage(newItems); // Met à jour le localstorage après le déplacement
+      saveTodoItemsToLocalStorage(newItems);
     }
   };
 
@@ -109,9 +110,7 @@ function App() {
 
   return (
       <div className="todo-container">
-        <h2>Ma to-do-list :</h2>
-        <div className="task-label">Tâches réalisées : {numDone}/{numTotal}</div>
-        <input className="search" type="text" placeholder="Rechercher une tâche" value={searchTerm} onChange={handleSearchChange}/>
+        <Header todoItems={todoItems} />
         <ol className="todo-list">
           {filteredItems.map(item => (
               <li className="todo-item" key={item.id}>
@@ -135,7 +134,7 @@ function App() {
               </div>
             </div>
         )}
-        <button className="Ajouter" onClick={handleAddTask}>Ajouter</button>
+        <Footer handleAddTask={handleAddTask} handleSearchChange={handleSearchChange} searchTerm={searchTerm}/>
       </div>
   );
 }

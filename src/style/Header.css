@@ -1,0 +1,25 @@
+/* App.css */
+body {
+  background-color: #282c34;
+}
+h2 {
+  color: white;
+}
+
+/* Header */
+.progress-label {
+  color : forestgreen;
+}
+/* Barre de progression du Header */
+.progress-bar-container {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.progress-bar {
+  height: 20px;
+  background-color: forestgreen;
+  border-radius: 4px;
+  margin-bottom: 35px;
+}
