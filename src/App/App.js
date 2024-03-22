@@ -5,10 +5,18 @@ import Footer from "./Footer";
 
 function App() {
   const initialItems = [
-    { id: 1, text: "Learn JavaScript", done: false },
-    { id: 2, text: "Learn React", done: false },
-    { id: 3, text: "Play around in JSFiddle", done: true },
-    { id: 4, text: "Build something awesome", done: true }
+    { id: 1, text: "Learn JavaScript", done: true },
+    { id: 2, text: "Learn React", done: true },
+    { id: 3, text: "Build something awesome", done: false },
+    { id: 4, text: "Play around in JSFiddle", done: true },
+    { id: 5, text: "Implement Save in localstorage", done: true },
+    { id: 6, text: "Implement Header class", done: true },
+    { id: 7, text: "Implement progress bar", done: true },
+    { id: 8, text: "Implement Footer class", done: true },
+    { id: 9, text: "Implement search bar", done: true },
+    { id: 10, text: "Implement Modal pop-up", done: true },
+    { id: 11, text: "Implement categorys", done: false },
+    { id: 12, text: "Implement sorting system", done: true },
   ];
 
   const [todoItems, setTodoItems] = useState([]);
@@ -32,7 +40,9 @@ function App() {
   const handleChange = (id) => {
     setTodoItems(todoItems.map(item => {
       if (item.id === id) {
-        return { ...item, done: !item.done };
+        const updatedItem = { ...item, done: !item.done };
+        saveTodoItemsToLocalStorage(todoItems.map(todo => (todo.id === id ? updatedItem : todo))); // Sauvegarde la liste mise à jour
+        return updatedItem;
       }
       return item;
     }));
